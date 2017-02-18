@@ -6,6 +6,9 @@ Target Host: 127.0.0.1
 Target Database: db_hmusic
 Date: 2017/2/17 16:58:43
 */
+CREATE DATABASE `db_hmusic` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE db_hmusic;
 
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
