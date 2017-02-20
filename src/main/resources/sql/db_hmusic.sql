@@ -14,6 +14,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for admin
 -- ----------------------------
+
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `adminid` int(11) NOT NULL AUTO_INCREMENT,
@@ -22,9 +23,18 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`adminid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for comment
--- ----------------------------
+#
+# Data for table "admin"
+#
+
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES (1,'admin01','admin01'),(2,'admin02','admin02');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
+#
+# Structure for table "comment"
+#
+
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
   `commentid` int(11) NOT NULL AUTO_INCREMENT,
@@ -36,13 +46,20 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`commentid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for music
--- ----------------------------
+#
+# Data for table "comment"
+#
+
+
+#
+# Structure for table "music"
+#
+
 DROP TABLE IF EXISTS `music`;
 CREATE TABLE `music` (
   `musicid` int(11) NOT NULL AUTO_INCREMENT,
   `musicname` varchar(32) NOT NULL,
+  `musicphoto` varchar(255) DEFAULT NULL,
   `duration` time NOT NULL,
   `musicpath` varchar(255) NOT NULL,
   `lyricspath` varchar(255) DEFAULT NULL,
@@ -52,9 +69,15 @@ CREATE TABLE `music` (
   PRIMARY KEY (`musicid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for music_musictype
--- ----------------------------
+#
+# Data for table "music"
+#
+
+
+#
+# Structure for table "music_musictype"
+#
+
 DROP TABLE IF EXISTS `music_musictype`;
 CREATE TABLE `music_musictype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -63,9 +86,15 @@ CREATE TABLE `music_musictype` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for musictype
--- ----------------------------
+#
+# Data for table "music_musictype"
+#
+
+
+#
+# Structure for table "musictype"
+#
+
 DROP TABLE IF EXISTS `musictype`;
 CREATE TABLE `musictype` (
   `musictypeid` int(11) NOT NULL AUTO_INCREMENT,
@@ -73,21 +102,37 @@ CREATE TABLE `musictype` (
   PRIMARY KEY (`musictypeid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for singer
--- ----------------------------
+#
+# Data for table "musictype"
+#
+
+
+#
+# Structure for table "singer"
+#
+
 DROP TABLE IF EXISTS `singer`;
 CREATE TABLE `singer` (
   `singerid` int(11) NOT NULL AUTO_INCREMENT,
   `singername` varchar(25) NOT NULL,
+  `singerphoto` varchar(255) DEFAULT NULL,
   `sex` enum('男','女') DEFAULT NULL,
   `introduction` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`singerid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for singer_music
--- ----------------------------
+#
+# Data for table "singer"
+#
+
+/*!40000 ALTER TABLE `singer` DISABLE KEYS */;
+INSERT INTO `singer` VALUES (1,'薛之谦',NULL,'男','男歌手');
+/*!40000 ALTER TABLE `singer` ENABLE KEYS */;
+
+#
+# Structure for table "singer_music"
+#
+
 DROP TABLE IF EXISTS `singer_music`;
 CREATE TABLE `singer_music` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -96,9 +141,15 @@ CREATE TABLE `singer_music` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for singer_singertype
--- ----------------------------
+#
+# Data for table "singer_music"
+#
+
+
+#
+# Structure for table "singer_singertype"
+#
+
 DROP TABLE IF EXISTS `singer_singertype`;
 CREATE TABLE `singer_singertype` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -107,9 +158,15 @@ CREATE TABLE `singer_singertype` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for singertype
--- ----------------------------
+#
+# Data for table "singer_singertype"
+#
+
+
+#
+# Structure for table "singertype"
+#
+
 DROP TABLE IF EXISTS `singertype`;
 CREATE TABLE `singertype` (
   `singertypeid` int(11) NOT NULL AUTO_INCREMENT,
@@ -117,9 +174,15 @@ CREATE TABLE `singertype` (
   PRIMARY KEY (`singertypeid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for songlist
--- ----------------------------
+#
+# Data for table "singertype"
+#
+
+
+#
+# Structure for table "songlist"
+#
+
 DROP TABLE IF EXISTS `songlist`;
 CREATE TABLE `songlist` (
   `songlistid` int(11) NOT NULL AUTO_INCREMENT,
@@ -127,9 +190,15 @@ CREATE TABLE `songlist` (
   PRIMARY KEY (`songlistid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for songlist_music
--- ----------------------------
+#
+# Data for table "songlist"
+#
+
+
+#
+# Structure for table "songlist_music"
+#
+
 DROP TABLE IF EXISTS `songlist_music`;
 CREATE TABLE `songlist_music` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -138,9 +207,15 @@ CREATE TABLE `songlist_music` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for user
--- ----------------------------
+#
+# Data for table "songlist_music"
+#
+
+
+#
+# Structure for table "user"
+#
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
@@ -151,11 +226,16 @@ CREATE TABLE `user` (
   `sex` enum('男','女') DEFAULT NULL,
   `telephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for user_songlist
--- ----------------------------
+#
+# Data for table "user"
+#
+
+#
+# Structure for table "user_songlist"
+#
+
 DROP TABLE IF EXISTS `user_songlist`;
 CREATE TABLE `user_songlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -164,6 +244,7 @@ CREATE TABLE `user_songlist` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records 
--- ----------------------------
+#
+# Data for table "user_songlist"
+#
+
