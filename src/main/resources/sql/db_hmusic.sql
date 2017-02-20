@@ -148,7 +148,7 @@ CREATE TABLE `user` (
   `userpassword` varchar(32) NOT NULL,
   `userphoto` varchar(255) DEFAULT NULL,
   `email` varchar(32) DEFAULT NULL,
-  `sex` enum('') DEFAULT NULL,
+  `sex` enum('男','女') DEFAULT NULL,
   `telephone` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
