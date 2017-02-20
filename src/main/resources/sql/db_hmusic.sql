@@ -6,7 +6,7 @@ Target Host: 127.0.0.1
 Target Database: db_hmusic
 Date: 2017/2/17 16:58:43
 */
-CREATE DATABASE `db_hmusic` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE `db_hmusic` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE db_hmusic;
 
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `singer`;
 CREATE TABLE `singer` (
   `singerid` int(11) NOT NULL AUTO_INCREMENT,
   `singername` varchar(25) NOT NULL,
-  `sex` enum('') DEFAULT NULL,
+  `sex` enum('男','女') DEFAULT NULL,
   `introduction` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`singerid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
