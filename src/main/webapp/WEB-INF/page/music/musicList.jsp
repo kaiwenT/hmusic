@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>显示信息</title>
+<title>显示歌曲列表</title>
 <base href="${ctx}">
 <script  src="${ctx}/js/jquery.min.js"></script>
 

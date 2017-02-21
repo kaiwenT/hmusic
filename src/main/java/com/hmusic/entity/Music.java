@@ -1,5 +1,6 @@
 package com.hmusic.entity;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class Music {
@@ -9,7 +10,7 @@ public class Music {
 
     private String musicphoto;
 
-    private Date duration;
+    private Time duration;
 
     private String musicpath;
 
@@ -49,7 +50,7 @@ public class Music {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(Time duration) {
         this.duration = duration;
     }
 

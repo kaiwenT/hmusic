@@ -3,15 +3,15 @@
 <mapper namespace="com.hmusic.dao.MusicDao">
 	
 	<resultMap type="Music" id="MusicMap">
-		  <id column="musicid" jdbcType="INTEGER" property="musicid" />
-    <result column="musicname" jdbcType="VARCHAR" property="musicname" />
-    <result column="musicphoto" jdbcType="VARCHAR" property="musicphoto" />
-    <result column="duration" jdbcType="TIME" property="duration" />
-    <result column="musicpath" jdbcType="VARCHAR" property="musicpath" />
-    <result column="lyricspath" jdbcType="VARCHAR" property="lyricspath" />
-    <result column="clickrate" jdbcType="INTEGER" property="clickrate" />
-    <result column="downloadrate" jdbcType="INTEGER" property="downloadrate" />
-    <result column="uploadtime" jdbcType="TIMESTAMP" property="uploadtime" />
+		  <id column="musicid" property="musicid" />
+    <result column="musicname" property="musicname" />
+    <result column="musicphoto" property="musicphoto" />
+    <result column="duration" property="duration" />
+    <result column="musicpath" property="musicpath" />
+    <result column="lyricspath" property="lyricspath" />
+    <result column="clickrate" property="clickrate" />
+    <result column="downloadrate" property="downloadrate" />
+    <result column="uploadtime" property="uploadtime" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
