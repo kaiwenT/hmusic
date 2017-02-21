@@ -10,22 +10,42 @@
 <base href="${ctx}">
 </head>
 <body>
-    <form action="${ctx}/user/edit"  method="post">
-  	<input type="text" name="id" value="${user.id}" />
+    <form action="${ctx}/music/edit"  method="post">
+  	<input type="text" name="musicid" value="${music.musicid}" />
   	<table>
   		<tr> 
-  			<th>账号</th>
-  			<td><input type="text" name="username" value="${user.username}" /></td>
+  			<th>歌曲名</th>
+  			<td><input type="text" name="musicname" value="${music.musicname}" /></td>
   		</tr>
   		<tr>
   			 
-  			<th>密码</th>
-  			<td><input type="password" name="password" value="${user.password}" /></td>
+  			<th>歌曲时长</th>
+  			<td><input type="text" name="duration" value="${music.duration}" /></td>
   		</tr>
   		<tr>
   			 
-  			<th>邮箱</th>
-  			<td><input type="text" name="email" value="${user.email}" /></td>
+  			<th>歌曲图片</th>
+  			<td><input type="text" name="musicphoto" value="${music.musicphoto}" /></td>
+  		</tr>
+  		<tr>
+  			 
+  			<th>歌曲路径</th>
+  			<td><input type="text" name="musicpath" value="${music.musicpath}" /></td>
+  		</tr>
+  		<tr>
+  			 
+  			<th>歌词路径</th>
+  			<td><input type="text" name="lyricspath" value="${music.lyricspath}" /></td>
+  		</tr>
+  		<tr>
+  			 
+  			<th>点击量</th>
+  			<td><input type="text" name="clickrate" value="${music.clickrate}" /></td>
+  		</tr>
+  		<tr>
+  			 
+  			<th>下载量</th>
+  			<td><input type="text" name="downloadrate" value="${music.downloadrate}" /></td>
   		</tr>
   		<tr>
   			<td colspan="2"><input type="submit" value="修改"> </td>

@@ -31,16 +31,34 @@
      </insert>
 	
 	<update id="update" parameterType="Music">
-		 update music
-    set musicname = #{musicname,jdbcType=VARCHAR},
-      musicphoto = #{musicphoto,jdbcType=VARCHAR},
-      duration = #{duration,jdbcType=TIME},
-      musicpath = #{musicpath,jdbcType=VARCHAR},
-      lyricspath = #{lyricspath,jdbcType=VARCHAR},
-      clickrate = #{clickrate,jdbcType=INTEGER},
-      downloadrate = #{downloadrate,jdbcType=INTEGER},
-      uploadtime = #{uploadtime,jdbcType=TIMESTAMP}
-    where musicid = #{musicid,jdbcType=INTEGER}
+		update music
+    <set>
+      <if test="musicname != null">
+        musicname = #{musicname},
+      </if>
+      <if test="musicphoto != null">
+        musicphoto = #{musicphoto},
+      </if>
+      <if test="duration != null">
+        duration = #{duration},
+      </if>
+      <if test="musicpath != null">
+        musicpath = #{musicpath},
+      </if>
+      <if test="lyricspath != null">
+        lyricspath = #{lyricspath},
+      </if>
+      <if test="clickrate != null">
+        clickrate = #{clickrate},
+      </if>
+      <if test="downloadrate != null">
+        downloadrate = #{downloadrate},
+      </if>
+      <if test="uploadtime != null">
+        uploadtime = #{uploadtime},
+      </if>
+    </set>
+    where musicid = #{musicid}
 	</update>
 	
 	

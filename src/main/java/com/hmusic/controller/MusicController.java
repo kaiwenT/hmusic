@@ -1,5 +1,6 @@
 package com.hmusic.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +87,9 @@ public class MusicController {
      */
 	@RequestMapping(value = "/edit",method = RequestMethod.POST)
 	public String edit(Music music){
+		System.out.println("musicId:"+music.getMusicid());
+		System.out.println("musicDownloadrate:"+music.getDownloadrate());
+		music.setUploadtime(new Date(System.currentTimeMillis()));
 		musicService.update(music);
 		return "redirect:/music/musicList";
 	}
