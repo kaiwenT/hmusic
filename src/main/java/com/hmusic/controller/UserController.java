@@ -2,8 +2,12 @@ package com.hmusic.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,8 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hmusic.entity.User;
 import com.hmusic.service.UserService;
 
-@Controller
-@RequestMapping(value="/user")
+@Controller //用于标示本类为web层控制组件
+@RequestMapping(value="/user") //用于标定访问时URL的位置
 public class UserController {
 
 	@Autowired
@@ -35,7 +39,6 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("userList", userList);
 		mv.setViewName("userList");
-		
 		return mv;
 	}
 	/**
@@ -52,7 +55,7 @@ public class UserController {
 	*/
 	
 	/**
-     * 跳转到添加信息视图
+     * 跳转到注册视图
      * @return
      */
 	@RequestMapping(value = "/addLoad")
@@ -62,13 +65,17 @@ public class UserController {
 		return mv;
 	}
 	/**
-     * 添加信息
+     * 添加注册信息
      * @param user
      * @return
      */
 	@RequestMapping(value = "/add",method = RequestMethod.POST)
 	public String add(User user){
-		userService.add(user);
+		User user2=userService.findByUsername(user.getUsername());
+		if(user2==null)
+		{
+			userService.add(user);
+		}
 		return "redirect:/user/userList";
 	}
 	/**
@@ -77,8 +84,8 @@ public class UserController {
      * @return
      */
 	@RequestMapping(value = "/editLoad")
-	public ModelAndView editLoad(@RequestParam(value = "id") Integer id){
-		User user = userService.findByID(id);
+	public ModelAndView editLoad(@RequestParam(value = "userid") Integer userid){
+		User user = userService.findByID(userid);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", user);
 		mv.setViewName("edit");
@@ -94,22 +101,52 @@ public class UserController {
 		userService.update(user);
 		return "redirect:/user/userList";
 	}
+	
 	/**
      * 删除用户
      * @param id
      * @return
      */
 	@RequestMapping(value = "/delete")
-	public String  delete(@RequestParam(value = "id") Integer id){
-		userService.delete(id);
+	public String  delete(@RequestParam(value = "userid") Integer userid){
+		userService.delete(userid);
 		
 		return "redirect:/user/userList";
 	}
+
+	//点击登录按钮时，创造一个登陆视图
+	@RequestMapping(value="/loginLoad")
+	public ModelAndView login()
+	{
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("login");
+		return mv;
+	}
 	
-	
-	
-	
-	
-	
+	//实现登陆操作
+	@RequestMapping(value="/login", method = RequestMethod.POST)
+	public String login(User user){
+		User user2=userService.login(user.getUsername(), user.getUserpassword());
+		if (user2 == null)
+		{
+			System.out.println("登陆失败");
+			//重新回到登陆界面
+			return "redirect:/user/loginLoad";
+			
+		} 
+		else 
+		{
+			System.out.println("登陆成功");
+			return "redirect:/user/success";
+
+		}
+	}
 	
 }
+       
+       
+	 
+	
+	
+	
+
