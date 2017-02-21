@@ -40,6 +40,7 @@ $(function(){
 </script> 
 </head>
 <body>
+<a href="${ctx}/music/addLoad">增加</a> 
 	<table id="tab">
   		<tr>
   			<th>歌曲ID</th>
@@ -68,7 +69,7 @@ $(function(){
   		</tr>
      </c:forEach> 
   	</table>
-    <a href="${ctx}/music/addLoad">增加</a> 
-	
+    
+	<div class="pagelist"> <a href="">上一页</a> <span class="current">1</span><a href="">2</a><a href="">3</a><a href="">下一页</a><a href="">尾页</a> </div>
 </body>
 </html>
