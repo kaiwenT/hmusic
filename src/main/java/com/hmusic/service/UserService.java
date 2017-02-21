@@ -10,9 +10,13 @@ public interface UserService {
 	
 	public void update(User user);
 	
-	public void delete(Integer id);
+	public void delete(Integer userid);
 	
-	public User findByID(Integer id);
+	public User findByID(Integer userid);
+	
+	public User findByUsername(String username);
+	
+	public User login(String username, String password);
 	
 	public List<User> findAll();
 }

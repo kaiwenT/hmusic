@@ -28,7 +28,7 @@ public interface UserDao {
      *
      * @param id
      */
-	void delete(Integer id);
+	void delete(Integer userid);
 	
 	 /**
      * 此方法对应于数据库中的表 ,user
@@ -36,7 +36,16 @@ public interface UserDao {
      *
      * @param id
      */
-	User findByID(Integer id);
+	User findByID(Integer userid);
+	
+	/**
+     * 此方法对应于数据库中的表 ,user
+     * 根据指定用户名获取一条数据库记录
+     *
+     * @param username
+     */
+	User findByUsername(String username);
+	
 	/**
      * 此方法对应于数据库中的表 ,user
      * 查询所有数据库记录
