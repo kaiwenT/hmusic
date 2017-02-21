@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hmusic.dao.MusicDao">
+	
+	<resultMap type="Music" id="MusicMap">
+		  <id column="musicid" jdbcType="INTEGER" property="musicid" />
+    <result column="musicname" jdbcType="VARCHAR" property="musicname" />
+    <result column="musicphoto" jdbcType="VARCHAR" property="musicphoto" />
+    <result column="duration" jdbcType="TIME" property="duration" />
+    <result column="musicpath" jdbcType="VARCHAR" property="musicpath" />
+    <result column="lyricspath" jdbcType="VARCHAR" property="lyricspath" />
+    <result column="clickrate" jdbcType="INTEGER" property="clickrate" />
+    <result column="downloadrate" jdbcType="INTEGER" property="downloadrate" />
+    <result column="uploadtime" jdbcType="TIMESTAMP" property="uploadtime" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+    musicid, musicname, musicphoto, duration, musicpath, lyricspath, clickrate, downloadrate, 
+    uploadtime
+  </sql>
+  
+	<insert id="add" parameterType="Music">
+		insert into music (musicid, musicname, musicphoto, 
+      duration, musicpath, lyricspath, 
+      clickrate, downloadrate, uploadtime
+      )
+    values (#{musicid,jdbcType=INTEGER}, #{musicname,jdbcType=VARCHAR}, #{musicphoto,jdbcType=VARCHAR}, 
+      #{duration,jdbcType=TIME}, #{musicpath,jdbcType=VARCHAR}, #{lyricspath,jdbcType=VARCHAR}, 
+      #{clickrate,jdbcType=INTEGER}, #{downloadrate,jdbcType=INTEGER}, #{uploadtime,jdbcType=TIMESTAMP}
+      )
+     </insert>
+	
+	<update id="update" parameterType="Music">
+		 update music
+    set musicname = #{musicname,jdbcType=VARCHAR},
+      musicphoto = #{musicphoto,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=TIME},
+      musicpath = #{musicpath,jdbcType=VARCHAR},
+      lyricspath = #{lyricspath,jdbcType=VARCHAR},
+      clickrate = #{clickrate,jdbcType=INTEGER},
+      downloadrate = #{downloadrate,jdbcType=INTEGER},
+      uploadtime = #{uploadtime,jdbcType=TIMESTAMP}
+    where musicid = #{musicid,jdbcType=INTEGER}
+	</update>
+	
+	
+	<delete id="delete" parameterType="Integer">
+		delete from music where musicid = #{id}
+	</delete>
+	
+	<select id="findById" parameterType="Integer" resultType="Music">
+		select * from music where musicid = #{id}
+	</select>
+	
+	
+	<select id="findAll" resultMap="MusicMap">
+		select * from music
+	</select>
+	
+</mapper>

@@ -29,7 +29,7 @@ public class MusicController {
 		List<Music> musicList = musicService.findAll();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("musicList", musicList);
-		mv.setViewName("musicList");
+		mv.setViewName("music/musicList");
 		
 		return mv;
 	}
@@ -53,7 +53,7 @@ public class MusicController {
 	@RequestMapping(value = "/addLoad")
 	public ModelAndView addLoad(){
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("add");
+		mv.setViewName("music/add");
 		return mv;
 	}
 	/**
@@ -76,7 +76,7 @@ public class MusicController {
 		Music music = musicService.findByID(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("music", music);
-		mv.setViewName("edit");
+		mv.setViewName("music/edit");
 		return mv;
 	}
 	/**
