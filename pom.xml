@@ -204,6 +204,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <!--获取mp3文件信息 https://mvnrepository.com/artifact/org/jaudiotagger -->
+	<dependency>
+	    <groupId>org</groupId>
+	    <artifactId>jaudiotagger</artifactId>
+	    <version>2.0.3</version>
+	</dependency>
+    
   </dependencies>
   <build>
     <finalName>hmusic</finalName>
