@@ -85,12 +85,14 @@ body a:hover{
 
 	float: left;
 	height:92px;
-	padding: 30px 10px 20px 10px;
+	padding: 30px 0px 20px 10px;
 /*	background: green;*/
 }
 
 .search-width{
-	width: 250px;
+	/*width: 250px;*/
+	min-width: 100px;
+	max-width: 170px;
 	display: inline-block;
 }
 
