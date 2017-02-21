@@ -38,9 +38,9 @@ public class MusicServiceImpl implements MusicService {
 
 	@Override
 	@Transactional(propagation = Propagation.NOT_SUPPORTED,readOnly = true)
-	public Music findByID(Integer id) {
+	public Music findById(Integer id) {
 		// TODO Auto-generated method stub
-		return musicDao.findByID(id);
+		return musicDao.findById(id);
 	}
 
 	@Override

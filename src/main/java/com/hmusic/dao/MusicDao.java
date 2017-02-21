@@ -37,7 +37,7 @@ public interface MusicDao {
      *
      * @param id
      */
-	Music findByID(Integer id);
+	Music findById(Integer id);
 	/**
      * 此方法对应于数据库中的表 ,music
      * 查询所有数据库记录

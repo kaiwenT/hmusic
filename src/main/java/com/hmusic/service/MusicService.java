@@ -12,7 +12,7 @@ public interface MusicService {
 	 
 	void deleteById(Integer id);
 	
-	Music findByID(Integer id);
+	Music findById(Integer id);
 	
 	List<Music> findAll();
 }

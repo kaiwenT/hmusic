@@ -44,7 +44,7 @@
 	</update>
 	
 	
-	<delete id="delete" parameterType="Integer">
+	<delete id="deleteById" parameterType="Integer">
 		delete from music where musicid = #{id}
 	</delete>
 	

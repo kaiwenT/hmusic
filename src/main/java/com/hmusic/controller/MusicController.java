@@ -68,12 +68,12 @@ public class MusicController {
 	}
 	/**
      * 修改信息获取，跳转到修改信息视图
-     * @param id
+     * @param musicid
      * @return
      */
 	@RequestMapping(value = "/editLoad")
-	public ModelAndView editLoad(@RequestParam(value = "id") Integer id){
-		Music music = musicService.findByID(id);
+	public ModelAndView editLoad(@RequestParam(value = "musicid") Integer musicid){
+		Music music = musicService.findById(musicid);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("music", music);
 		mv.setViewName("music/edit");
@@ -91,12 +91,12 @@ public class MusicController {
 	}
 	/**
      * 删除歌曲
-     * @param id
+     * @param musicid
      * @return
      */
 	@RequestMapping(value = "/delete")
-	public String delete(@RequestParam(value = "id") Integer id){
-		musicService.deleteById(id);
+	public String delete(@RequestParam(value = "musicid") Integer musicid){
+		musicService.deleteById(musicid);
 		
 		return "redirect:/music/musicList";
 	}
